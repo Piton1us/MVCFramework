@@ -1,0 +1,16 @@
+{
+    "name": "vladimir/mvc-framework",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vladimir\\MvcFramework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Piton1us",
+            "email": "89169196952@mail.ru"
+        }
+    ],
+    "require": {}
+}
