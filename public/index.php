@@ -1,16 +1,16 @@
 <?php 
 
- require_once __DIR__.'/vendor/autoload.php';
+ require_once '../vendor/autoload.php';
  use app\core\Application;
 
 $app = new Application();
 
 
-$app->router->get('/',function(){
+$app->router->get('/public/',function(){
    return "hello world";
 });
 
-$app->router->get('/contact',function(){
+$app->router->get('/contact/',function(){
    return "Contact";
 });
 
