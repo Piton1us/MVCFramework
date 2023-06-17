@@ -6,13 +6,9 @@
 $app = new Application();
 
 
-$app->router->get('/public/',function(){
-   return "hello world";
-});
+$app->router->get('/public/','home');
 
-$app->router->get('/contact/',function(){
-   return "Contact";
-});
+$app->router->get('/contact/','contact');
 
 
 
