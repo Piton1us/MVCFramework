@@ -26,10 +26,9 @@ class Router
       $callback = $this->routes[$method][$path] ?? false;
       if ($callback === false) {
          return "not found";
-         
       }
 
-      if(is_string($callback)){
+      if (is_string($callback)) {
          return $this->renderView($callback);
       }
 
@@ -38,7 +37,23 @@ class Router
 
    public function renderView($view)
    {
-      include_once __DIR__."/../views/$view.php";
+      $layoutContent = $this->layoutContent();
+      $viewContent = $this->renderOnlyView($view);
+      return str_replace('{{content}}',$viewContent,$layoutContent);
+      
    }
 
+   protected function layoutContent()
+   {
+      ob_start();
+      include_once Application::$ROOT_DIR . "/views/layouts/main.php";
+      return ob_get_clean();
+   }
+
+   protected function renderOnlyView($view)
+   {
+      ob_start();
+      include_once Application::$ROOT_DIR . "/views/$view.php";
+      return ob_get_clean();
+   }
 }
